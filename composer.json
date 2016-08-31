@@ -1,0 +1,20 @@
+{
+    "name": "trbsi/test_project",
+    "description": "Just testing project",
+    "authors": 
+    [
+        {
+            "name": "Dario T",
+            "email": "dario@fakemail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "TestNamespace\\": "src/"
+        }
+    }
+}
