@@ -43,7 +43,7 @@ class Test
 
 		$return = NULL;
 		$return.= '
-		<table class="table table-bordered table-stripped">
+		<table class="table table-bordered table-striped">
 		 <thead>
 		  <tr>
 		     <th>Code</th>
@@ -52,20 +52,21 @@ class Test
 		     <th>Product Description</th>
 		  </tr>
 		 </thead>';
+		 $return.='<tbody>';
+
 		while ($row = $results->fetch_assoc()) 
 		{
 			$return.= '
-			 <tbody>
 			  <tr>
 			     <td>'.$row["productCode"].'</td>
 			     <td>'.$row["productName"].'</td>
 			     <td>'.$row["textDescription"].'</td>
 			     <td>'.$row["productDescription"].'</td>
 			  </tr>
-			 </tbody>';
-			
+			 ';		
 		}
 
+		$return.='</tbody>';
 		$return.= '</table>';
 
 		$next_page = $page+1;
