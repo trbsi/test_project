@@ -38,7 +38,11 @@ class Test
 		}
 		$results = $this->mysqli->query($query);
 
-		echo '
+		if(empty($results))
+			return "Nema rezultata";
+
+		$return = NULL;
+		$return.= '
 		<table class="table table-bordered table-stripped">
 		 <thead>
 		  <tr>
@@ -50,7 +54,7 @@ class Test
 		 </thead>';
 		while ($row = $results->fetch_assoc()) 
 		{
-			echo '
+			$return.= '
 			 <tbody>
 			  <tr>
 			     <td>'.$row["productCode"].'</td>
@@ -62,14 +66,14 @@ class Test
 			
 		}
 
-		echo '</table>';
+		$return.= '</table>';
 
 		$next_page = $page+1;
 		$previous_page = $page-1;
 		if($page == 0)
 			$previous_page = 0;
 
-		echo '
+		$return.= '
 		<nav aria-label="Page navigation">
 		  <ul class="pagination">
 		    <li>
@@ -85,6 +89,8 @@ class Test
 		  </ul>
 		</nav>
 		';
+
+		return $return;
 		
 	}
 }

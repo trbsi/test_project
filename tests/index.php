@@ -12,9 +12,13 @@ $x = new Test;
 	</head>
 	<body>
 	<div class="container">
-	<?php
-	$x->generateTable(isset($_GET["page"]) ? $_GET["page"] : NULL);
-	?>
+		<div class="row">
+			<div class="col-sm-12">
+			<?php
+			echo $x->generateTable(isset($_GET["page"]) ? $_GET["page"] : NULL);
+			?>
+			</div>
+		</div>
 	</div>
 	</body>
 </html>
